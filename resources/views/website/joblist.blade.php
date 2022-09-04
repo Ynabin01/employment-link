@@ -11,21 +11,19 @@
     </div>
     <div class="container">
         <div class="row align-items-center">
-            @foreach($job_categories as $categorie)
             <div class="col-sm-6">
                 <div class="job-box">
-                    <figure><img src="{{$categorie->banner_image}}"></figure>
+                    <figure><img src="website/images/client/719.gif"></figure>
                     <a href="jobdetail">
                         <div class="job-content">
-                            <h5>{{route('category',$categorie->nav_name)}} <span>{{$categorie->caption}}</span></h5>
-                            <p><i class="fa fa-industry"></i>{{$categorie->short_content}}</p>
-                            <p><i class="fa fa-map-marker"></i>{{$categorie->long_content}}</p>
+                            <h5>Security Guard <span>(21)</span></h5>
+                            <p><i class="fa fa-industry"></i>Strike Force Security Sdn. Bhd.</p>
+                            <p><i class="fa fa-map-marker"></i>Malaysia , Selangor , Klang</p>
                         </div>
                     </a>
                     <button class="btn-cog">Apply Now</button>
                 </div>
             </div>
-            @endforeach
         </div>
         <div class="view-all-button">
             <a href="alljob">View All</a>   
