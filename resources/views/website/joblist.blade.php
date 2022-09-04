@@ -4,7 +4,7 @@
             <div class="col-lg-6 col-xl-5 m-auto text-center">
                 <div class="section-title section-title--dark">
                     <h6>Recent Jobs</h6>
-                    <h2 class="mb-0">List of Demand</h2>
+                    <h2 class="mb-0">List of Demands</h2>
                 </div>
             </div>
         </div>
