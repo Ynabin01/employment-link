@@ -14,54 +14,23 @@
             <div class="col-lg-6 ms-auto">
                 <div class="testimonial-content-wrap">
                     <div class="testimonial-content">
+                        @if (isset($testimonial))
                         <!-- Start Testimonial Item -->
+                        @foreach($testimonial as $test)
                         <div class="testimonial-item">
                             <div class="testimonial-thumb">
-                                <img src="website/img/testimonial/client-01.jpg" alt="Employment"/>
+                                <img src="{{$test->banner_image}}" alt="Employment"/>
                             </div>
 
                             <div class="testimonial-txt">
                                 <img src="website/img/icons/quote.png" alt="Employment"/>
-                                <p>Very much happy with provide the best
-                                    Business Solutions for Clients to grow up
-                                    their Business very sharply.</p>
-                                <h5 class="client-name">David Loyed</h5>
+                                <p>{{$test->short_content}}</p>
+                                <h5 class="client-name">{{$test->caption}}</h5>
                             </div>
                         </div>
+                        @endforeach
                         <!-- End Testimonial Item -->
-
-                        <!-- Start Testimonial Item -->
-                        <div class="testimonial-item">
-                            <div class="testimonial-thumb">
-                                <img src="website/img/testimonial/client-02.jpg" alt="Employment"/>
-                            </div>
-
-                            <div class="testimonial-txt">
-                                <img src="website/img/icons/quote.png" alt="Employment"/>
-                                <p>Very much happy with provide the best
-                                    Business Solutions for Clients to grow up
-                                    their Business very sharply.</p>
-                                <h5 class="client-name">Alex Tuntuni</h5>
-                            </div>
-                        </div>
-                        <!-- End Testimonial Item -->
-
-                        <!-- Start Testimonial Item -->
-                        <div class="testimonial-item">
-                            <div class="testimonial-thumb">
-                                <img src="website/img/testimonial/client-03.jpg" alt="Employment"/>
-                            </div>
-
-                            <div class="testimonial-txt">
-                                <img src="website/img/icons/quote.png" alt="Employment"/>
-                                <p>Very much happy with provide the best
-                                    Business Solutions for Clients to grow up
-                                    their Business very sharply.</p>
-                                <h5 class="client-name">John Fault</h5>
-                            </div>
-
-                        </div>
-                        <!-- End Testimonial Item -->
+                        @endif
                     </div>
                 </div>
             </div>

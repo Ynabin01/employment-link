@@ -7,5 +7,5 @@
     @include('website.statistics')
     @include('website.job')
     @include('website.testimonial')
-    @include('website.client')
+    @include('website.partner')
 @endsection
