@@ -1,4 +1,14 @@
 @php
+$normal_gallary_notice = App\Models\Navigation::query()
+    ->where('nav_category', 'Main')
+    ->where('page_type', '!=', 'Home')
+    ->where('page_type', '!=', 'About Us')
+    ->where('page_type', '!=', 'Job Seeker')
+    ->where('parent_page_id', 0)
+    ->where('page_status', '1')
+    ->orderBy('position', 'ASC')
+    ->get();
+
     $global_setting = app\Models\GlobalSetting::all()->first();
     if(isset($normal)){
         $seo = $normal;
@@ -165,10 +175,10 @@
                             <h4 class="widget-title">Information</h4>
                             <div class="widget-body">
                                 <ul class="widget-list">
-                                    <li><a href="inner">About Us</a></li>
-                                    <li><a href="jobcategorirs">Job Category</a></li>
-                                    <li><a href="alljob">All Job</a></li>
-                                    <li><a href="contact">Contact</a></li>
+                                    @foreach ($normal_gallary_notice->where('page_type', '=', 'Group') as $dat)
+                                    <li><a href="{{ route('category', $dat->nav_name) }}">{{ $dat->caption }}</a>
+                                    </li>
+                                @endforeach
                                 </ul>
                             </div>
                         </div>

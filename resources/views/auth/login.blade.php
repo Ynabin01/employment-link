@@ -37,7 +37,7 @@
         </div>
         <div class="col-md-offset-4 col-md-4">
             <br/>
-            <p style="text-align: center;">Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All rights reserved <br> | Khabari.com  | <br><a href="https://radiantnepal.com" target="_blank">Radiant InfoTech Nepal</a></p>
+            <p style="text-align: center;">Copyright &copy;<script>document.write(new Date().getFullYear());</script> | All rights reserved <br> | EmploymentLink.com  | <br><a href="https://radiantnepal.com" target="_blank">Radiant InfoTech Nepal</a></p>
         </div>
     </div>
 </div>
