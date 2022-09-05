@@ -1,8 +1,46 @@
+@php
+    $global_setting = app\Models\GlobalSetting::all()->first();
+    if(isset($normal)){
+        $seo = $normal;
+    }
+    elseif(isset($job)){
+        $seo = $job;
+    }
+@endphp
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
 <head>
     <meta charset="utf-8">
+    <!-----SEO--------->
+
+  <title>{{$seo->page_titile ?? $global_setting->page_title}}</title>
+  <meta name="title" content="{{$seo->page_titile ?? $global_setting->page_title}}">
+  <meta name="description" content="{{$seo->page_description ?? $global_setting->page_description}}">
+  <meta name="keywords" content="{{$seo->page_keyword ?? $global_setting->page_keyword}}">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="1 days">
+  <meta name="author" content="{{$global_setting->site_name ?? ''}}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{$global_setting->website_full_address ?? ''}}">
+<meta property="og:title" content="{{$seo->page_title ?? $global_setting->page_title}}">
+<meta property="og:description" content="{{$seo->page_description ?? $global_setting->page_description}}">
+<meta property="og:image" content="{{$seo->banner_image ?? '/uploads/icons/'.$global_setting->site_logo}}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{$global_setting->website_full_address ?? ''}}">
+<meta property="twitter:title" content="{{$seo->page_title ?? $global_setting->page_title}}">
+<meta property="twitter:description" content="{{$seo->page_description ?? $global_setting->page_description}}">
+<meta property="twitter:image" content="{{$seo->banner_image ?? '/uploads/icons/'.$global_setting->site_logo}}">
+
+<!-----END SEO------->
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -52,7 +90,7 @@
                 <div class="col-lg-4 col-sm-6 col-12">
                     <!-- Start Logo Area -->
                     <div class="logo-area">
-                        <a href="/"><img src="website/images/logo.png" alt="Employment-Logo"></a>
+                        <a href="/"><img src="/uploads/icons/{{$global_setting->site_logo}}" alt="Employment-Logo"></a>
                     </div>
                     <!-- End Logo Area -->
                 </div>
@@ -61,26 +99,20 @@
                     <!-- Start Navigation Area -->
                     <div class="navigation-area">
                         <ul class="main-menu nav">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="inner">About Us</a></li>
-                            <li class="has-submenu"><a href="#">Job Seeker</a>
-                                <ul class="submenu-nav">
-                                    <li><a href="alljob">All Jobs</a></li>
-                                    <li><a href="jobcategories">Job Categories</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu"><a href="#">Gallery</a>
-                                <ul class="submenu-nav">
-                                    <li><a href="galleryfolder">Photo</a></li>
-                                    <li><a href="videogallery">Video</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact">Contact</a></li>
+                          @foreach ($menus as $menu)
+                                <li class="has-submenu"><a href="{{$menu->nav_name}}">{{$menu->caption}}</a>
+                                    @php $submenus = $menu->childs @endphp
+                                    @foreach ($submenus as $sub)                                    
+                                        <ul class="submenu-nav">
+                                            <li><a href="/{{$menu->nav_name}}/{{$sub->nav_name}}">{{$sub->caption}}</a></li>
+                                        </ul>
+                                    @endforeach
+                                </li>
+                            @endforeach                           
                         </ul>
                     </div>
                     <!-- End Navigation Area -->
                 </div>
-
                 <div class="col-lg-2 col-sm-6 col-12">
                     <!-- Start Header Action Area -->
                     <div class="header-action text-end">
@@ -121,7 +153,7 @@
                     <div class="col-lg-4">
                         <div class="widget-item">
                             <div class="about-widget">
-                                <a href="index.html"><img src="website/images/logo.png" alt="Logo" /></a>
+                                <a href="index.html"><img src="/uploads/icons/{{$global_setting->site_logo}}" alt="Logo" /></a>
                                 <p>QUALITY, HONESTY, INTEGRITY – These are terms that are synonymous with Employment
                                     Link Nepal (P) Ltd. bestowed onto our partners, and all endeavors we embark on.</p>
                             </div>
@@ -147,10 +179,11 @@
                             <h4 class="widget-title">Quick Links</h4>
                             <div class="widget-body">
                                 <ul class="widget-list">
-                                    <li><a href="#" target="_blank">Facebook</a></li>
-                                    <li><a href="#" target="_blank">Twitter</a></li>
-                                    <li><a href="#" target="_blank">Youtube</a></li>
-                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                   
+                                    <li><a href="{{ $global_setting->facebook ?? '' }}" target="_blank">Facebook</a></li>
+                                    <li><a href="{{ $global_setting->twitter ?? '' }}" target="_blank">Twitter</a></li>
+                                    <li><a href="{{ $global_setting->youtube ?? '' }}" target="_blank">Youtube</a></li>
+                                    <li><a href="{{ $global_setting->linkedin ?? '' }}" target="_blank">Instagram</a></li>
                                 </ul>
                             </div>
                         </div>
