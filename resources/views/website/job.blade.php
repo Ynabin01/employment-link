@@ -9,8 +9,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="container">
         <div class="row align-items-center">
             @if (isset($jobs))
@@ -18,12 +16,12 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <a href="alljob">
                             <div class="category-box">
-                                <img src="{{$job->banner_image}}">
-                                <p>{{$job->caption}}</p>
+                                <img src="{{ $job->banner_image }}">
+                                <p>{{ $job->caption }}</p>
                             </div>
                         </a>
+                    </div>
                 @endforeach
-
             @endif
         </div>
     </div>
