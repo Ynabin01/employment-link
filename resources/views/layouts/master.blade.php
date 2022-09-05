@@ -2,7 +2,7 @@
 $normal_gallary_notice = App\Models\Navigation::query()
     ->where('nav_category', 'Main')
     ->where('page_type', '!=', 'Home')
-    ->where('page_type', '!=', 'About Us')
+    ->where('page_type', '!=', 'About us')
     ->where('page_type', '!=', 'Job Seeker')
     ->where('parent_page_id', 0)
     ->where('page_status', '1')
@@ -16,6 +16,7 @@ $normal_gallary_notice = App\Models\Navigation::query()
     elseif(isset($job)){
         $seo = $job;
     }
+    
 @endphp
 
 <!DOCTYPE html>
