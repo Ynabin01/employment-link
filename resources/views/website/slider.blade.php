@@ -1,11 +1,8 @@
+@if(isset($sliders))
 <div class="slider-area-wrapper">
-     
-    
     <div id="rev_slider_11_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="business-classic"
-         data-source="gallery">
-         @if(isset($sliders) && $sliders!=null)
-        <div id="rev_slider_11_1" class="rev_slider fullwidthabanner" data-version="5.4.7">
-            
+         data-source="gallery">       
+        <div id="rev_slider_11_1" class="rev_slider fullwidthabanner" data-version="5.4.7">        
             <ul>   
                 <!-- SLIDE  -->
                 @foreach($sliders as $slider)
@@ -32,10 +29,8 @@
                 </li>    
                 @endforeach 
             </ul>
-            
             <div class="tp-bannertimer tp-bottom"></div>
         </div>
-        @endif
     </div>
-    
 </div>
+@endif
