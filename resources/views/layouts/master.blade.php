@@ -9,14 +9,13 @@ $normal_gallary_notice = App\Models\Navigation::query()
     ->orderBy('position', 'ASC')
     ->get();
 
-    $global_setting = app\Models\GlobalSetting::all()->first();
-    if(isset($normal)){
-        $seo = $normal;
-    }
-    elseif(isset($job)){
-        $seo = $job;
-    }
-    
+$global_setting = app\Models\GlobalSetting::all()->first();
+if (isset($normal)) {
+    $seo = $normal;
+} elseif (isset($job)) {
+    $seo = $job;
+}
+
 @endphp
 
 <!DOCTYPE html>
@@ -26,31 +25,31 @@ $normal_gallary_notice = App\Models\Navigation::query()
     <meta charset="utf-8">
     <!-----SEO--------->
 
-  <title>{{$seo->page_titile ?? $global_setting->page_title}}</title>
-  <meta name="title" content="{{$seo->page_titile ?? $global_setting->page_title}}">
-  <meta name="description" content="{{$seo->page_description ?? $global_setting->page_description}}">
-  <meta name="keywords" content="{{$seo->page_keyword ?? $global_setting->page_keyword}}">
-  <meta name="robots" content="index, follow">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="language" content="English">
-  <meta name="revisit-after" content="1 days">
-  <meta name="author" content="{{$global_setting->site_name ?? ''}}">
+    <title>{{ $seo->page_titile ?? $global_setting->page_title }}</title>
+    <meta name="title" content="{{ $seo->page_titile ?? $global_setting->page_title }}">
+    <meta name="description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
+    <meta name="keywords" content="{{ $seo->page_keyword ?? $global_setting->page_keyword }}">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="{{ $global_setting->site_name ?? '' }}">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{$global_setting->website_full_address ?? ''}}">
-<meta property="og:title" content="{{$seo->page_title ?? $global_setting->page_title}}">
-<meta property="og:description" content="{{$seo->page_description ?? $global_setting->page_description}}">
-<meta property="og:image" content="{{$seo->banner_image ?? '/uploads/icons/'.$global_setting->site_logo}}">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $global_setting->website_full_address ?? '' }}">
+    <meta property="og:title" content="{{ $seo->page_title ?? $global_setting->page_title }}">
+    <meta property="og:description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
+    <meta property="og:image" content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="{{$global_setting->website_full_address ?? ''}}">
-<meta property="twitter:title" content="{{$seo->page_title ?? $global_setting->page_title}}">
-<meta property="twitter:description" content="{{$seo->page_description ?? $global_setting->page_description}}">
-<meta property="twitter:image" content="{{$seo->banner_image ?? '/uploads/icons/'.$global_setting->site_logo}}">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ $global_setting->website_full_address ?? '' }}">
+    <meta property="twitter:title" content="{{ $seo->page_title ?? $global_setting->page_title }}">
+    <meta property="twitter:description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
+    <meta property="twitter:image" content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
 
-<!-----END SEO------->
+    <!-----END SEO------->
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -101,7 +100,8 @@ $normal_gallary_notice = App\Models\Navigation::query()
                 <div class="col-lg-4 col-sm-6 col-12">
                     <!-- Start Logo Area -->
                     <div class="logo-area">
-                        <a href="/"><img src="/uploads/icons/{{$global_setting->site_logo}}" alt="Employment-Logo"></a>
+                        <a href="/"><img src="/uploads/icons/{{ $global_setting->site_logo }}"
+                                alt="Employment-Logo"></a>
                     </div>
                     <!-- End Logo Area -->
                 </div>
@@ -110,16 +110,18 @@ $normal_gallary_notice = App\Models\Navigation::query()
                     <!-- Start Navigation Area -->
                     <div class="navigation-area">
                         <ul class="main-menu nav">
-                          @foreach ($menus as $menu)
-                                <li class="has-submenu"><a href="{{$menu->nav_name}}">{{$menu->caption}}</a>
+                            @foreach ($menus as $menu)
+                                <li class="has-submenu"><a href="{{ $menu->nav_name }}">{{ $menu->caption }}</a>
                                     @php $submenus = $menu->childs @endphp
-                                    @foreach ($submenus as $sub)                                    
+                                    @foreach ($submenus as $sub)
                                         <ul class="submenu-nav">
-                                            <li><a href="/{{$menu->nav_name}}/{{$sub->nav_name}}">{{$sub->caption}}</a></li>
+                                            <li><a
+                                                    href="/{{ $menu->nav_name }}/{{ $sub->nav_name }}">{{ $sub->caption }}</a>
+                                            </li>
                                         </ul>
                                     @endforeach
                                 </li>
-                            @endforeach                           
+                            @endforeach
                         </ul>
                     </div>
                     <!-- End Navigation Area -->
@@ -164,7 +166,8 @@ $normal_gallary_notice = App\Models\Navigation::query()
                     <div class="col-lg-4">
                         <div class="widget-item">
                             <div class="about-widget">
-                                <a href="index.html"><img src="/uploads/icons/{{$global_setting->site_logo}}" alt="Logo" /></a>
+                                <a href="index.html"><img src="/uploads/icons/{{ $global_setting->site_logo }}"
+                                        alt="Logo" /></a>
                                 <p>QUALITY, HONESTY, INTEGRITY – These are terms that are synonymous with Employment
                                     Link Nepal (P) Ltd. bestowed onto our partners, and all endeavors we embark on.</p>
                             </div>
@@ -177,9 +180,9 @@ $normal_gallary_notice = App\Models\Navigation::query()
                             <div class="widget-body">
                                 <ul class="widget-list">
                                     @foreach ($normal_gallary_notice->where('page_type', '=', 'Group') as $dat)
-                                    <li><a href="{{ route('category', $dat->nav_name) }}">{{ $dat->caption }}</a>
-                                    </li>
-                                @endforeach
+                                        <li><a href="{{ route('category', $dat->nav_name) }}">{{ $dat->caption }}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -190,11 +193,15 @@ $normal_gallary_notice = App\Models\Navigation::query()
                             <h4 class="widget-title">Quick Links</h4>
                             <div class="widget-body">
                                 <ul class="widget-list">
-                                   
-                                    <li><a href="{{ $global_setting->facebook ?? '' }}" target="_blank">Facebook</a></li>
-                                    <li><a href="{{ $global_setting->twitter ?? '' }}" target="_blank">Twitter</a></li>
-                                    <li><a href="{{ $global_setting->youtube ?? '' }}" target="_blank">Youtube</a></li>
-                                    <li><a href="{{ $global_setting->linkedin ?? '' }}" target="_blank">Instagram</a></li>
+
+                                    <li><a href="{{ $global_setting->facebook ?? '' }}" target="_blank">Facebook</a>
+                                    </li>
+                                    <li><a href="{{ $global_setting->twitter ?? '' }}" target="_blank">Twitter</a>
+                                    </li>
+                                    <li><a href="{{ $global_setting->youtube ?? '' }}" target="_blank">Youtube</a>
+                                    </li>
+                                    <li><a href="{{ $global_setting->linkedin ?? '' }}" target="_blank">Instagram</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -205,12 +212,12 @@ $normal_gallary_notice = App\Models\Navigation::query()
                             <h4 class="widget-title">Contact</h4>
                             <div class="widget-body">
                                 <address>
-                                    Narayan Gopal Tower, Maharajgunj Kathmandu, Nepal <br>
-                                    <span>Tel:</span> <a href="tel:014372698">+977-1-4372698,</a> <a
-                                        href="tel:014371365">4371365,</a> <a href="tel:015901956">5901956</a><br>
+                                    {{ $global_setting->website_full_address}} <br>
+                                    <span>Tel:</span> <a href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a> <a
+                                        href="tel:{{$global_setting->phone_ne}}">{{$global_setting->phone_ne}}</a><br>
                                     <span>Email:</span>
-                                    <a href="mailto:employmentlinknepal@gmail.com">employmentlinknepal@gmail.com,</a>
-                                    <a href="mailto:info@employmentlinknepal.com">info@employmentlinknepal.com</a>
+                                    <a href="mailto:{{ $global_setting->site_email }}">{{ $global_setting->site_email }}</a>
+                                    <a href="mailto:{{ $global_setting->page_description }}">{{ $global_setting->page_description }}</a>
                                 </address>
                             </div>
                         </div>
