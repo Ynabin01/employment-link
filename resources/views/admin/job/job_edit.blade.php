@@ -82,6 +82,25 @@
                     <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="number" id="caption" name="contract_time" placeholder="2 years" value="{{$job->contract_time}}" required="required">
                 </div>   
 
+                <div class="form-group col-md-6">
+                    <label for="caption">qualification  <i class="reqr">*</i>(qualification )</label>
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="qualification" placeholder="qualification " value="{{$job->qualification}}" required="required">
+                </div>   
+
+                <div class="form-group col-md-6">
+                    <label for="caption">Gender <i class="reqr">*</i> (gender)</label>
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="gender" placeholder="gender" value="{{$job->gender}}" required="required">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="caption">Age range <i class="reqr">*</i> (age range)</label>
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="age_range" placeholder="age_range" value="{{$job->age_range}}" required="required">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="caption">Total Demand <i class="reqr">*</i> (total demand)</label>
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="total_demand" placeholder="tital_demand" value="{{$job->total_demand}}" required="required">
+                </div>
+
                 <div id="url_link_div" class="form-group col-md-10" style="display: none;">
                     <label for="link_url">URL Link <i class="reqr">*</i></label>
                     <input class="form-control {{ $errors->has('link') ? 'has-error' : '' }}" type="text" id="link_url" name="link" placeholder="URL Link" value="{{$job->navigation->link}}">

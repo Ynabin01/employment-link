@@ -10,21 +10,23 @@
         </div>
     </div>
     <div class="container">
+        @foreach ($job_categories as $cat)
         <div class="row align-items-center">
             <div class="col-sm-6">
                 <div class="job-box">
-                    <figure><img src="website/images/client/719.gif"></figure>
+                    <figure><img src="{{ $cat->banner_image }}"></figure>
                     <a href="jobdetail">
                         <div class="job-content">
-                            <h5>Security Guard <span>(21)</span></h5>
-                            <p><i class="fa fa-industry"></i>Strike Force Security Sdn. Bhd.</p>
-                            <p><i class="fa fa-map-marker"></i>Malaysia , Selangor , Klang</p>
+                            <h5>{{ $cat->caption }}<span>{{ $cat->caption }}</span></h5>
+                            <p><i class="fa fa-industry"></i>{{ $cat->short_content }}</p>
+                            <p><i class="fa fa-map-marker"></i>{{ $cat->long_content }}</p>
                         </div>
                     </a>
                     <button class="btn-cog">Apply Now</button>
                 </div>
             </div>
         </div>
+        @endforeach
         <div class="view-all-button">
             <a href="alljob">View All</a>   
         </div>

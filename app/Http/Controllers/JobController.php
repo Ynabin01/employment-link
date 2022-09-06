@@ -54,12 +54,20 @@ class JobController extends Controller
         $country = $request['country'];
         $salary = $request['salary'];
         $contract_time = $request['contract_time'];
+        $qualification = $request['qualification'];
+        $gender = $request['gender'];
+        $age_range = $request ['age_range'];
+        $total_demand = $request ['total_demand'];
          
           //unset above data from request
           unset($request['company_name']);
           unset($request['country']);
           unset($request['salary']);
           unset($request['contract_time']);
+          unset($request['qualification']);
+          unset($request['gender']);
+          unset($request['age_range']);
+          unset($request['total_demand']);
 
         //close
         
@@ -113,7 +121,12 @@ class JobController extends Controller
                     $job->company_name = $company_name;
                     $job->salary = $salary; 
                     $job->contract_time = $contract_time; 
-                    $job->navigation_id =  $navigation->id;    
+                    $job->navigation_id =  $navigation->id; 
+                    $job->qualification =  $qualification; 
+                    $job->gender =  $gender; 
+                    $job->age_range =  $age_range; 
+                    $job->total_demand =  $total_demand; 
+                       
                     $job->save();
               }
         return redirect('admin/navigation-list/'.$nav_category.$parent_id)->with('success','Data Added Succssfully!!');

@@ -23,7 +23,8 @@ class GlobalSetting extends Model
     		'site_logo_nepali',
     		'site_status',
             'extra_one',
-            'extra_tow'
+            'extra_tow',
+			
     ];
 	public static function getSetting(){
 		return GlobalSetting::all();

@@ -57,7 +57,7 @@ if (isset($normal)) {
     <title>Employment Link Nepal Pvt. Ltd.</title>
 
     <!--== Favicon ==-->
-    <link rel="shortcut icon" href="website/images/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/website/images/favicon.png" type="image/x-icon" />
 
     <!--== Google Fonts ==-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,27 +67,27 @@ if (isset($normal)) {
         rel="stylesheet">
 
     <!--== All Magnific Popup CSS ==-->
-    <link href="website/css/magnific-popup.min.css" rel="stylesheet" />
+    <link href="/website/css/magnific-popup.min.css" rel="stylesheet" />
     <!--== All Animate CSS ==-->
-    <link href="website/css/animate.min.css" rel="stylesheet" />
+    <link href="/website/css/animate.min.css" rel="stylesheet" />
     <!--== All FontAwesome CSS ==-->
-    <link href="website/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/website/css/font-awesome.min.css" rel="stylesheet" />
     <!--== All Material Icons CSS ==-->
-    <link href="website/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="/website/css/materialdesignicons.min.css" rel="stylesheet" />
     <!--== All Helper CSS ==-->
-    <link href="website/css/helper.min.css" rel="stylesheet" />
+    <link href="/website/css/helper.min.css" rel="stylesheet" />
     <!--== All Revolution CSS ==-->
-    <link href="website/css/settings.css" rel="stylesheet" />
+    <link href="/website/css/settings.css" rel="stylesheet" />
     <!--== All Slicknav CSS ==-->
-    <link href="website/css/slicknav.min.css" rel="stylesheet" />
+    <link href="/website/css/slicknav.min.css" rel="stylesheet" />
     <!--== All Timeline CSS ==-->
-    <link href="website/css/timeline.css" rel="stylesheet" />
+    <link href="/website/css/timeline.css" rel="stylesheet" />
     <!--== All Slick Slider CSS ==-->
-    <link href="website/css/slick.min.css" rel="stylesheet" />
+    <link href="/website/css/slick.min.css" rel="stylesheet" />
     <!--== All BootStrap CSS ==-->
-    <link href="website/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/website/css/bootstrap.min.css" rel="stylesheet" />
     <!--== Main Style CSS ==-->
-    <link href="website/css/style.css" rel="stylesheet" />
+    <link href="/website/css/style.css" rel="stylesheet" />
 
 </head>
 

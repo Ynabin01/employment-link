@@ -1,13 +1,12 @@
 @extends("layouts.master")
 
 @section('content')
-
 <div class="job-detail-area sp-y-bottom">
     <div class="container">
         <div class="row">
             <div class="col-sm-8">
                 <div class="job-detail">
-                    <h6>Job Description</h6>
+                    <h6>Job Descriptions</h6>
                     <p>A security guard should monitor and authorize entrance and departure of employees, visitors, and other persons to guard against theft and maintain security of premises. Also write reports of daily activities and irregularities, such as equipment or property damage, theft, presence of unauthorized persons, or unusual occurrences.</p>
 
                     <h6>Required Knowledge, Skills, and Abilities</h6>
@@ -20,6 +19,7 @@
                     </ul>
                 </div>
             </div>
+           
             <div class="col-sm-4">
                 <div class="job-side-box">
                     <ul>
@@ -58,6 +58,8 @@
                     </ul>
                 </div>
             </div>
+           
+        
         </div>
     </div>
 </div>
