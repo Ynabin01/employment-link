@@ -172,7 +172,8 @@ class HomeController extends Controller
         else{
             $category_type = null;
         }
-        
+   
+
         if($category_type == "Photo Gallery"){
             //return "return to page gallary";
             $photos = Navigation::query()->where('parent_page_id',$category_id)->where('page_status','1')->latest()->get();
@@ -195,8 +196,9 @@ class HomeController extends Controller
             return view("website.normal")->with(['normal'=>$normal,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
         }
         else{
-            if($jobs!=null){            
-                 return view("website.job-list")->with(['jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+            if($jobs!=null){   
+                return redirect('/');         
+                //  return view("website.job-list")->with(['jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
             }
             else{
                 return redirect('/');
