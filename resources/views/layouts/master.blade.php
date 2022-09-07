@@ -8,8 +8,8 @@ $normal_gallary_notice = App\Models\Navigation::query()
     ->where('page_status', '1')
     ->orderBy('position', 'ASC')
     ->get();
-
-$global_setting = app\Models\GlobalSetting::all()->first();
+$menus =  $menus = App\Models\Navigation::query()->where('nav_category','Main')->where('page_type','!=','Job')->where('page_type','!=','Photo Gallery')->where('page_type','!=','Notice')->where('parent_page_id',0)->where('page_status','1')->orderBy('position','ASC')->get();
+$global_setting = App\Models\GlobalSetting::all()->first();
 if (isset($normal)) {
     $seo = $normal;
 } elseif (isset($job)) {
@@ -111,17 +111,16 @@ if (isset($normal)) {
                     <div class="navigation-area">
                         <ul class="main-menu nav">
                             @foreach ($menus as $menu)
-                                <li class="has-submenu"><a href="{{ $menu->nav_name }}">{{ $menu->caption }}</a>
+                            <li class="has-submenu"><a href="/{{$menu->nav_name}}">{{$menu->caption}}</a>
+                                <ul class="submenu-nav">
                                     @php $submenus = $menu->childs @endphp
                                     @foreach ($submenus as $sub)
-                                        <ul class="submenu-nav">
-                                            <li><a
-                                                    href="/{{ $menu->nav_name }}/{{ $sub->nav_name }}">{{ $sub->caption }}</a>
-                                            </li>
-                                        </ul>
+                                    <li><a href="/{{ $menu->nav_name }}/{{ $sub->nav_name }}">{{ $sub->caption }}</a>
+                                    </li>
                                     @endforeach
-                                </li>
-                            @endforeach
+                               </ul>
+                           </li>
+                           @endforeach
                         </ul>
                     </div>
                     <!-- End Navigation Area -->

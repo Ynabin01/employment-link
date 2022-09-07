@@ -95,6 +95,7 @@ Route::prefix('admin')->group(function(){
 });
 //Route::get('view-all/{slug}',[HomeController::class,"viewAll"])->name['viewall'];
 
+Route::get('/joblist/{category_slug}',[HomeController::class,"getJobListWithCategory"])->name('JobList');
 Route::get('view-all',[HomeController::class,"viewAll"])->name('viewall');
 Route::get('read-more/{slug}',[HomeController::class,'ReadMore'])->name('readmore');
 

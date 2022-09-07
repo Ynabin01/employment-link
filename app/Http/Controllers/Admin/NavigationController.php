@@ -105,7 +105,7 @@ class NavigationController extends Controller
     public function edit($nav_category, $id)
     {
         $navigation = Navigation::find($id);
-        $categories = Navigation::where('page_type','group')->where('nav_category', $nav_category)->get();
+        $categories = Navigation::where('page_type', 'LIKE', "%Group%")->where('nav_category', $nav_category)->get();
         return view('admin.navigation.navigation_edit', compact('navigation','nav_category','categories'));
     }
 

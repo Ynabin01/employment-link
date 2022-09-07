@@ -93,7 +93,7 @@
                                         </td>
 
                                         <td>
-                                            @if($navigation->page_type === 'Group')
+                                            @if($navigation->page_type === 'Group' || "Group"==strtok($navigation->page_type, " "))
                                                 <a href="/admin/navigation-list/{{$nav_category}}/{{$navigation->id}}"
                                                    title="Group">
                                                     <button class="btn btn-primary">Open</button>

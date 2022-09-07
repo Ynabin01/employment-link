@@ -30,7 +30,7 @@
                 <a href="alljob">
                 <div class="category-box">
                     <img src="{{ $cat->banner_image }}">
-                    <p><a href="/{{ $cat->nav_name }}">{{ $cat->caption }}</p>
+                    <p><a href="{{route('JobList',$cat->nav_name)}}">{{ $cat->caption }}</p>
                 </div>
                 </a>
             </div>
