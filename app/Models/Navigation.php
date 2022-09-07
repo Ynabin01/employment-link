@@ -11,6 +11,7 @@ class Navigation extends Model
     	'nav_name',
     	'alias',
     	'caption',
+        'span',
         'caption_nepali',
         'nav_category',
     	'page_type',

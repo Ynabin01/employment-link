@@ -42,6 +42,7 @@ class NavigationController extends Controller
 
     public function store(Request $request, $nav_category)
     {
+        
         $this->validate($request,[
             'nav_name' => 'required|min:2',
             'alias' => 'required|unique:navigations',
@@ -93,6 +94,7 @@ class NavigationController extends Controller
         }
 
         $navigation = Navigation::create($data);
+        
         return redirect('admin/navigation-list/'.$nav_category.$parent_id)->with('success','Data Added Succssfully!!');
 
     }
