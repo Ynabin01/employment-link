@@ -19,9 +19,10 @@
 
     <div class="job-list-area sp-y-bottom">
         <div class="container">
+            @if (isset($jobs))
+            @foreach ($jobs as $job)
                 <div class="row align-items-center">
-                    @if (isset($jobs))
-                    @foreach ($jobs as $job)
+                   
                     {{-- {{$job->salary}}  {{$job->navigation->caption}}  --}}
                     <div class="col-sm-6">
                         <div class="job-box">
@@ -36,9 +37,10 @@
                             <button class="btn-cog">Apply Now</button>
                         </div>
                     </div>
-                    @endforeach
-                    @endif
+                    
                 </div>
+                @endforeach
+                    @endif
         </div>
     </div>
     <!--== End Categories Area Wrapper ==-->
