@@ -98,6 +98,8 @@ class HomeController extends Controller
 
 
     public function category($menu){
+
+
         //return $menu." this is category";
         $menus = Navigation::query()->where('nav_category','Main')->where('page_type','!=','Job')->where('page_type','!=','Photo Gallery')->where('page_type','!=','Notice')->where('parent_page_id',0)->where('page_status','1')->orderBy('position','ASC')->get();
         //return $menus->first()->submenus;
@@ -356,8 +358,8 @@ class HomeController extends Controller
     }
     public function getJobListWithCategory($category_name){
         $category_id = Navigation::all()->where('nav_name',$category_name)->first()->id;
-        $joblist = Navigation::query()->where('parent_page_id',$category_id);
-        return view('website.job-list')->with(['joblist'=>$joblist]);
+        $jobs = Navigation::query()->where('parent_page_id',$category_id)->get();
+        return view('website.job-list-cat')->with(['jobs'=>$jobs]);
     }
   
 }
