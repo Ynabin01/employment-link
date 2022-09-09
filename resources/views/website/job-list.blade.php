@@ -29,8 +29,8 @@
                             <a href="/jobdetail/{{$job->navigation->nav_name}}">
                                 <div class="job-content">
                                     <h5>{{$job->navigation->caption}} <span>{{$job->navigation->span}}</span></h5>
-                                    <p><i class="fa fa-industry"></i>{{$job->navigation->short_content}}</p>
-                                    <p><i class="fa fa-map-marker"></i>{{$job->navigation->long_content}}</p>
+                                    <p><i class="fa fa-industry"></i>@php echo $job->navigation->short_content @endphp</p>
+                                    <p><i class="fa fa-map-marker"></i> @php echo$job->navigation->long_content @endphp</p>
                                 </div>
                             </a>
                             <button class="btn-cog">Apply Now</button>

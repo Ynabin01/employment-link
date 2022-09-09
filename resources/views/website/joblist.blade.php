@@ -18,8 +18,8 @@
                     <a href="jobdetail">
                         <div class="job-content">
                             <h5>{{ $cat->caption }}<span>{{ $cat->caption }}</span></h5>
-                            <p><i class="fa fa-industry"></i>@php echo $cat->short_content  @endphp</p>
-                            <p><i class="fa fa-map-marker"></i>@php echo $cat->long_content  @endphp</p>
+                            <p><i class="fa fa-industry"></i>{{ $cat->short_content }}</p>
+                            <p><i class="fa fa-map-marker"></i>{{ $cat->long_content }}</p>
                         </div>
                     </a>
                     <button class="btn-cog">Apply Now</button>
