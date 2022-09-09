@@ -11,10 +11,10 @@
     </div>
     <div class="container">
         <div class="row align-items-center">
-            @if (isset($jobs))
-                @foreach ($jobs as $job)
+
+                @foreach ($job_categories as $job)
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <a href="alljob">
+                        <a href="/joblist/{{$job->nav_name}}">
                             <div class="category-box">
                                 <img src="{{ $job->banner_image }}">
                                 <p>{{ $job->caption }}</p>
@@ -22,7 +22,7 @@
                         </a>
                     </div>
                 @endforeach
-            @endif
+           
         </div>
     </div>
     <div class="view-all-button">
