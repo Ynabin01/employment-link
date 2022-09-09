@@ -15,21 +15,21 @@
                 <div class="testimonial-content-wrap">
                     <div class="testimonial-content">
                         @if (isset($testimonial))
-                        <!-- Start Testimonial Item -->
-                        @foreach($testimonial as $test)
-                        <div class="testimonial-item">
-                            <div class="testimonial-thumb">
-                                <img src="{{$test->banner_image}}" alt="Employment"/>
-                            </div>
+                            <!-- Start Testimonial Item -->
+                            @foreach ($testimonial as $test)
+                                <div class="testimonial-item">
+                                    <div class="testimonial-thumb">
+                                        <img src="{{ $test->banner_image }}" alt="Employment" />
+                                    </div>
 
-                            <div class="testimonial-txt">
-                                <img src="website/img/icons/quote.png" alt="Employment"/>
-                                <p>{{$test->short_content}}</p>
-                                <h5 class="client-name">{{$test->caption}}</h5>
-                            </div>
-                        </div>
-                        @endforeach
-                        <!-- End Testimonial Item -->
+                                    <div class="testimonial-txt">
+                                        <img src="website/img/icons/quote.png" alt="Employment" />
+                                        <p>{{ $test->short_content }}</p>
+                                        <h5 class="client-name">{{ $test->caption }}</h5>
+                                    </div>
+                                </div>
+                            @endforeach
+                            <!-- End Testimonial Item -->
                         @endif
                     </div>
                 </div>
