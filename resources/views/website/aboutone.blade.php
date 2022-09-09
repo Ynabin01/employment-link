@@ -15,7 +15,7 @@
                     <p>
                         {{$about->long_content ?? ''}}    
                     </p>
-                    <a href="inner" class="btn-about">MORE DETAILS <i class="mdi mdi-chevron-double-right"></i></a>
+                    <a href="/about-us" class="btn-about">MORE DETAILS <i class="mdi mdi-chevron-double-right"></i></a>
                 </div>
             </div>
         </div>
