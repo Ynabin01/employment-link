@@ -26,7 +26,7 @@
                     <div class="col-sm-6">
                         <div class="job-box">
                             <figure><img src="{{$job->navigation->banner_image}}"></figure>
-                            <a href="/{{$job->navigation->nav_name}}">
+                            <a href="/jobdetail/{{$job->navigation->nav_name}}">
                                 <div class="job-content">
                                     <h5>{{$job->navigation->caption}} <span>{{$job->navigation->span}}</span></h5>
                                     <p><i class="fa fa-industry"></i>{{$job->navigation->short_content}}</p>

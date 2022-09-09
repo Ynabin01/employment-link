@@ -66,42 +66,42 @@
                 </div>    
                 
                   <div class="form-group col-md-6">
-                    <label for="caption">Company Name <i class="reqr">*</i>(company name)</label>
-                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="company_name" placeholder="company name" value="{{old('caption')}}" required="required">
+                    <label for="company_name">Company Name <i class="reqr">*</i>(company name)</label>
+                    <input class="form-control {{ $errors->has('company_name') ? 'has-error' : '' }}" type="text" id="company_name" name="company_name" placeholder="company name" value="{{old('company_name')}}" required="required">
                 </div>   
 
                   <div class="form-group col-md-6">
-                    <label for="caption">Country<i class="reqr">*</i> (country)</label>
-                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="country" placeholder="country" value="{{old('caption')}}" required="required">
+                    <label for="country">Country<i class="reqr">*</i> (country)</label>
+                    <input class="form-control {{ $errors->has('country') ? 'has-error' : '' }}" type="text" id="country" name="country" placeholder="country" value="{{old('country')}}" required="required">
                 </div>   
 
                   <div class="form-group col-md-6">
                     <label for="caption">salary <i class="reqr">*</i> (salary)</label>
-                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="number" id="caption" name="salary" placeholder="salary" value="{{old('caption')}}" required="required">
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="number" id="salary" name="salary" placeholder="salary" value="{{old('salary')}}" required="required">
                 </div>   
 
                 <div class="form-group col-md-6">
                     <label for="caption">Contract Time <i class="reqr">*</i> (Contract Time)</label>
-                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="contract_time" placeholder="2 years" value="{{old('caption')}}" required="required">
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="contract_time" name="contract_time" placeholder="2 years" value="{{old('contract_time')}}" required="required">
                 </div>   
 
                 <div class="form-group col-md-6">
                     <label for="caption">qualification  <i class="reqr">*</i>(qualification )</label>
-                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="qualification" placeholder="qualification " value="{{old('caption')}}" required="required">
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="qualification" name="qualification" placeholder="qualification " value="{{old('qualification')}}" required="required">
                 </div>   
 
                 <div class="form-group col-md-6">
                     <label for="caption">Gender <i class="reqr">*</i> (gender)</label>
-                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="gender" placeholder="gender" value="{{old('caption')}}" required="required">
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="gender" name="gender" placeholder="gender" value="{{old('gender')}}" required="required">
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="caption">Age range <i class="reqr">*</i> (age range)</label>
-                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="age_range" placeholder="age_range" value="{{old('caption')}}" required="required">
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="age_range" name="age_range" placeholder="age_range" value="{{old('age_range')}}" required="required">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="caption">Total Demand <i class="reqr">*</i> (total demand)</label>
-                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="total_demand" placeholder="tital_demand" value="{{old('caption')}}" required="required">
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="total_demand" name="total_demand" placeholder="tital_demand" value="{{old('total_demand')}}" required="required">
                 </div>
 
                 <div id="url_link_div" class="form-group col-md-10" style="display: none;">
