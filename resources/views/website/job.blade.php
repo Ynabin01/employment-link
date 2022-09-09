@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="view-all-button">
-        <a href="jobcategories">View All Categories</a>
+        <a href="/job-seeker/job-categorie">View All Categories</a>
     </div>
 </div>
 </div>

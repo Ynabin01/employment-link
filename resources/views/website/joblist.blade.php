@@ -28,7 +28,7 @@
         </div>
         @endforeach
         <div class="view-all-button">
-            <a href="alljob">View All</a>   
+            <a href="/job-seeker/all-jobs">View All</a>   
         </div>
     </div>
 </div>
