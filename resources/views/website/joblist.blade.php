@@ -10,16 +10,16 @@
         </div>
     </div>
     <div class="container">
-        @foreach ($job_categories as $cat)
+        @foreach ($jobs as $job)
         <div class="row align-items-center">
             <div class="col-sm-6">
                 <div class="job-box">
-                    <figure><img src="{{ $cat->banner_image }}"></figure>
+                    <figure><img src="{{ $job->banner_image }}"></figure>
                     <a href="jobdetail">
                         <div class="job-content">
-                            <h5>{{ $cat->caption }}<span>{{ $cat->caption }}</span></h5>
-                            <p><i class="fa fa-industry"></i>{{ $cat->short_content }}</p>
-                            <p><i class="fa fa-map-marker"></i>{{ $cat->long_content }}</p>
+                            <h5>{{ $job->caption }}<span>{{ $job->caption }}</span></h5>
+                            <p><i class="fa fa-industry"></i>{{ $job->short_content }}</p>
+                            <p><i class="fa fa-map-marker"></i>{{ $job->long_content }}</p>
                         </div>
                     </a>
                     <button class="btn-cog">Apply Now</button>
