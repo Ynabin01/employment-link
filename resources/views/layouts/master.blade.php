@@ -96,13 +96,25 @@ if (isset($normal)) {
     <link href="/website/css/bootstrap.min.css" rel="stylesheet" />
     <!--== Light Gallery CSS ==-->
     <link rel="stylesheet" href='https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css'>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!--== Main Style CSS ==-->
     <link href="/website/css/style.css" rel="stylesheet" />
 
 </head>
 
 <body>
+    @if(Session::has('contact'))
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Sucessfully Applyed !!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          </script>
+    @endif
+    
 
     <!--== Start Header Area Wrapper ==-->
     <header class="header-area">
@@ -267,28 +279,38 @@ if (isset($normal)) {
             <div class="off-canvas-content mb-sm-30">
                 <div class="off-canvas-item">
                     <div class="log-in-content-wrap">
+                        @if ($errors->any())
+								<div class="alert alert-danger">
+									<ul>
+										@foreach ($errors->all() as $error)
+											<li>{{ $error }}</li>
+										@endforeach
+									</ul>
+								</div>
+							@endif
                         <h2>Apply Form</h2>
                         <div class="login-form mtn-15">
-                            <form action="#" method="post">
+                            <form action="{{route('contactstore')}}" method="post" enctype="multipart/form-data">
+                                @csrf
                                 <div class="form-input-item">
-                                    <label for="fullname">Full Name</label>
-                                    <input type="text" id="fullname" required>
+                                    <label for="name">Full Name</label>
+                                    <input name="first_name" type="text" id="name">
                                 </div>
                                 <div class="form-input-item">
                                     <label for="number">Number</label>
-                                    <input type="number" id="number" required>
+                                    <input name="number" type="text" id="number" >
                                 </div>
                                 <div class="form-input-item">
                                     <label for="email">Email</label>
-                                    <input type="email" id="email" required>
+                                    <input name="email" type="email" id="email" required>
                                 </div>
                                 <div class="form-input-item">
-                                    <label for="CV">Your CV</label>
-                                    <input type="File" id="CV" required>
+                                    <label for="file">Your CV</label>
+                                    <input name="file" type="file" id="file">
                                 </div>
                                 <div class="form-input-item">
-                                    <label for="comment">Message</label>
-                                    <textarea type="text" id="comment" placeholder="Message..." style="width: 100%; min-height: 150px;"></textarea>
+                                    <label for="message">Message</label>
+                                    <textarea name="message" type="text" id="message" placeholder="Message..." style="width: 100%; min-height: 150px;"></textarea>
                                 </div>
                                 <div class="form-input-item">
                                     <button type="submit" class="btn-submit">Submit</button>

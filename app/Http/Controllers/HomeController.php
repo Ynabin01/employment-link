@@ -189,6 +189,13 @@ class HomeController extends Controller
             $photos = Navigation::query()->where('parent_page_id',$category_id)->where('page_status','1')->latest()->get();
             return view("website.gallery")->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
         }
+        // if($category_type == "Video Gallery"){
+        //     //return "return to page gallary";
+        //     $photos = Navigation::query()->where('parent_page_id',$category_id)->where('page_status','1')->latest()->get();
+            
+        //     return view('website.videogallery')->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+        //     return $photos;
+        // }
         elseif($category_type == "Job"){
             //return "return to view job";
             return view("website.job-list")->with(['jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
@@ -317,6 +324,13 @@ class HomeController extends Controller
              $subcategory_type = null;
          }
         
+        if($subcategory_type == "Video Gallery"){
+            //return "return to page gallary";
+            $photos = NavigationItems::query()->where('navigation_id',$subcategory_id)->latest()->get();
+            return view('website.videogallery')->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+            return $photos;
+        }
+        
         if($subcategory_type == "Photo Gallery"){
             //return "return to page gallary";
             $photos = NavigationItems::query()->where('navigation_id',$subcategory_id)->latest()->get();
@@ -378,11 +392,17 @@ class HomeController extends Controller
         $jobs = Navigation::query()->where('parent_page_id',$category_id)->get();
         return view('website.job-list-cat')->with(['jobs'=>$jobs]);
     }
-    public function GotoGallery($slug){
+    public function GOTOGALLERY($slug){
         $navigation_id = Navigation::all()->where('nav_name',$slug)->first()->id;
         $photos = NavigationItems::query()->where('navigation_id',$subcategory_id)->latest()->get();
         return view("website.photogallery")->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
     }
-  
+   
+    // public function VIDEOGALLERY($slug){
+    //     $navigation_id = Navigation::all()->where('nav_name',$slug)->first()->id;
+    //     $photos = NavigationItems::query()->where('navigation_id',$subcategory_id)->latest()->get();
+    //     return view("website.photogallery")->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+    //     return $photos;
+    // }
 }
 

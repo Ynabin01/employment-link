@@ -66,7 +66,7 @@ class ContactController extends Controller
     }
     public function ContactStore(Request $req){
         $validated = $req->validate([
-            'name' => 'required',
+            'first_name' => 'required',
             'number' => 'required',
          ]);
 
@@ -81,20 +81,24 @@ class ContactController extends Controller
          }
 
         $contact = new Contact;
-        $contact->name = $req['name'];
+        $contact->first_name = $req['first_name'];
+        $contact->last_name = $req['last_name'];
         $contact->number = $req['number'];
         $contact->email = $req['email'];
         $contact->file = $name;
         $contact->message = $req['message'];
         $contact->job_id = $req['job_id'];
         $contact->save();
+
         if($contact){
-            Session::flash('contact', 'Thanks for submitting'); 
-            return redirect('/');
+            // Session::flash('contact', 'Thanks for submitting'); 
+            // return redirect('/');
+            return redirect()->back()->with('contact', 'Messages sent successfully !!');   
         }
         else{
-            Session::flash('contact_error', 'Sorry form submitted failed'); 
-            return redirect('/');
+            // Session::flash('contact_error', 'Sorry form submitted failed'); 
+            // return redirect('/');
+            return redirect()->back()->with('success', 'Oopss Error !!');   
         }
 
     }

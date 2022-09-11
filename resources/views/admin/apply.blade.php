@@ -40,7 +40,7 @@
 						<div class="col-lg-5 col-12"><div class="img-box"></div></div>
 						<div class="col-lg-7 col-12">
 							<div class="form-wrapper">
-								<form action="{{route('storeapply',$job_slug)}}" method="POST" class="theme-form-one form-validation" autocomplete="on" enctype='multipart/form-data'>
+								<form action="{{route('contactstore')}}" method="POST" class="theme-form-one form-validation" autocomplete="on" enctype='multipart/form-data'>
                                     @csrf
 									<div class="row">
 										<div class="col-sm-6 col-12"><input type="text" placeholder="Name *" name="name"></div>
