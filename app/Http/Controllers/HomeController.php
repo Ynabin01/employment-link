@@ -300,6 +300,7 @@ class HomeController extends Controller
                 }
                 if(Navigation::all()->where('nav_name',$submenu)->where('page_type','Photo Gallery')->count()>0){
                     $subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','Photo Gallery')->first()->page_type;//slug/slug2(except group)
+                
                 }
                 if(Navigation::all()->where('nav_name',$submenu)->where('page_type','Video Gallery')->count()>0){
                     $subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','Video Gallery')->first()->page_type;//slug/slug2(except group)

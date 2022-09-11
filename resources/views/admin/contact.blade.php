@@ -162,19 +162,19 @@
 
                                 <div class="widget-item m-0">
                                     <address>
-                                        Narayan Gopal Tower, Maharajgunj Kathmandu, Nepal <br>
-                                        <span>Tel:</span> <a href="tel:014372698">+977-1-4372698,</a> <a
-                                            href="tel:014371365">4371365,</a> <a href="tel:015901956">5901956</a><br>
+                                        {{ $global_setting->website_full_address }} <br>
+                                        <span>Tel:</span> <a href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a> <a
+                                            href="tel:{{ $global_setting->phone_ne }}">{{ $global_setting->phone_ne }}</a><br>
                                         <span>Email:</span>
-                                        <a href="mailto:employmentlinknepal@gmail.com">employmentlinknepal@gmail.com,</a>
-                                        <a href="mailto:info@employmentlinknepal.com">info@employmentlinknepal.com</a>
+                                        <a href="mailto:{{ $global_setting->site_email }}">{{ $global_setting->site_email }}</a>
+                                        <a href="mailto:{{ $global_setting->page_description }}">{{ $global_setting->page_description }}</a>
                                     </address>
                                 </div>
                                 <div class="member-social-icons mt-30">
-                                    <a href="#"><i class="mdi mdi-facebook"></i></a>
-                                    <a href="#"><i class="mdi mdi-twitter"></i></a>
-                                    <a href="#"><i class="mdi mdi-linkedin"></i></a>
-                                    <a href="#"><i class="mdi mdi-pinterest"></i></a>
+                                    <a href="{{ $global_setting->facebook ?? '' }}"><i class="mdi mdi-facebook"></i></a>
+                                    <a href="{ $global_setting->twitter ?? '' }}"><i class="mdi mdi-twitter"></i></a>
+                                    <a href="{{ $global_setting->linkedin ?? '' }}"><i class="mdi mdi-linkedin"></i></a>
+                                    {{-- <a href="#"><i class="mdi mdi-pinterest"></i></a> --}}
                                 </div>
                             </div>
                         </div>
