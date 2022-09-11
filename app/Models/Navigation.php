@@ -46,7 +46,7 @@ class Navigation extends Model
 
     public function childs()
     {
-        return $this->hasMany('App\Models\Navigation','parent_page_id','id')->where('page_type','!=','Job')->where('page_type','!=','Photo Gallery')->where('page_type','!=','Notice');
+        return $this->hasMany('App\Models\Navigation','parent_page_id','id')->where('page_type','!=','Job');
     }
 
     public function parents()

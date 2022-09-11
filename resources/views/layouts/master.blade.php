@@ -8,7 +8,14 @@ $normal_gallary_notice = App\Models\Navigation::query()
     ->where('page_status', '1')
     ->orderBy('position', 'ASC')
     ->get();
-$menus =  $menus = App\Models\Navigation::query()->where('nav_category','Main')->where('page_type','!=','Job')->where('page_type','!=','Photo Gallery')->where('page_type','!=','Notice')->where('parent_page_id',0)->where('page_status','1')->orderBy('position','ASC')->get();
+$menus = App\Models\Navigation::query()
+    ->where('nav_category', 'Main')
+    ->where('page_type', '!=', 'Job')
+    ->where('page_type', '!=', 'Notice')
+    ->where('parent_page_id', 0)
+    ->where('page_status', '1')
+    ->orderBy('position', 'ASC')
+    ->get();
 $global_setting = App\Models\GlobalSetting::all()->first();
 if (isset($normal)) {
     $seo = $normal;
@@ -47,7 +54,8 @@ if (isset($normal)) {
     <meta property="twitter:url" content="{{ $global_setting->website_full_address ?? '' }}">
     <meta property="twitter:title" content="{{ $seo->page_title ?? $global_setting->page_title }}">
     <meta property="twitter:description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
-    <meta property="twitter:image" content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
+    <meta property="twitter:image"
+        content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
 
     <!-----END SEO------->
 
@@ -86,6 +94,9 @@ if (isset($normal)) {
     <link href="/website/css/slick.min.css" rel="stylesheet" />
     <!--== All BootStrap CSS ==-->
     <link href="/website/css/bootstrap.min.css" rel="stylesheet" />
+    <!--== Light Gallery CSS ==-->
+    <link rel="stylesheet" href='https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css'>
+
     <!--== Main Style CSS ==-->
     <link href="/website/css/style.css" rel="stylesheet" />
 
@@ -111,16 +122,17 @@ if (isset($normal)) {
                     <div class="navigation-area">
                         <ul class="main-menu nav">
                             @foreach ($menus as $menu)
-                            <li class="has-submenu"><a href="/{{$menu->nav_name}}">{{$menu->caption}}</a>
-                                <ul class="submenu-nav">
-                                    @php $submenus = $menu->childs @endphp
-                                    @foreach ($submenus as $sub)
-                                    <li><a href="/{{ $menu->nav_name }}/{{ $sub->nav_name }}">{{ $sub->caption }}</a>
-                                    </li>
-                                    @endforeach
-                               </ul>
-                           </li>
-                           @endforeach
+                                <li class="has-submenu"><a href="/{{ $menu->nav_name }}">{{ $menu->caption }}</a>
+                                    <ul class="submenu-nav">
+                                        @php $submenus = $menu->childs @endphp
+                                        @foreach ($submenus as $sub)
+                                            <li><a
+                                                    href="/{{ $menu->nav_name }}/{{ $sub->nav_name }}">{{ $sub->caption }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                     <!-- End Navigation Area -->
@@ -211,12 +223,15 @@ if (isset($normal)) {
                             <h4 class="widget-title">Contact</h4>
                             <div class="widget-body">
                                 <address>
-                                    {{ $global_setting->website_full_address}} <br>
-                                    <span>Tel:</span> <a href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a> <a
-                                        href="tel:{{$global_setting->phone_ne}}">{{$global_setting->phone_ne}}</a><br>
+                                    {{ $global_setting->website_full_address }} <br>
+                                    <span>Tel:</span> <a
+                                        href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a> <a
+                                        href="tel:{{ $global_setting->phone_ne }}">{{ $global_setting->phone_ne }}</a><br>
                                     <span>Email:</span>
-                                    <a href="mailto:{{ $global_setting->site_email }}">{{ $global_setting->site_email }}</a>
-                                    <a href="mailto:{{ $global_setting->page_description }}">{{ $global_setting->page_description }}</a>
+                                    <a
+                                        href="mailto:{{ $global_setting->site_email }}">{{ $global_setting->site_email }}</a>
+                                    <a
+                                        href="mailto:{{ $global_setting->page_description }}">{{ $global_setting->page_description }}</a>
                                 </address>
                             </div>
                         </div>
@@ -309,41 +324,55 @@ if (isset($normal)) {
 
 
     <!--=======================Javascript============================-->
-    <script src="website/js/modernizr-3.6.0.min.js"></script>
-    <script src="website/js/jquery.min.js"></script>
-    <script src="website/js/jquery-migrate.min.js"></script>
-    <script src="website/js/popper.min.js"></script>
-    <script src="website/js/bootstrap.min.js"></script>
-    <script src="website/js/plugins/waypoint.min.js"></script>
-    <script src="website/js/plugins/counterup.min.js"></script>
-    <script src="website/js/plugins/instafeed.min.js"></script>
-    <script src="website/js/plugins/jquery.appear.js"></script>
-    <script src="website/js/plugins/jquery.slicknav.min.js"></script>
-    <script src="website/js/plugins/parallax.min.js"></script>
-    <script src="website/js/plugins/slick.min.js"></script>
-    <script src="website/js/plugins/magnific-popup.min.js"></script>
+    <script src="/website/js/modernizr-3.6.0.min.js"></script>
+    <script src="/website/js/jquery.min.js"></script>
+    <script src="/website/js/jquery-migrate.min.js"></script>
+    <script src="/website/js/popper.min.js"></script>
+    <script src="/website/js/bootstrap.min.js"></script>
+    <script src="/website/js/plugins/waypoint.min.js"></script>
+    <script src="/website/js/plugins/counterup.min.js"></script>
+    <script src="/website/js/plugins/instafeed.min.js"></script>
+    <script src="/website/js/plugins/jquery.appear.js"></script>
+    <script src="/website/js/plugins/jquery.slicknav.min.js"></script>
+    <script src="/website/js/plugins/parallax.min.js"></script>
+    <script src="/website/js/plugins/slick.min.js"></script>
+    <script src="/website/js/plugins/magnific-popup.min.js"></script>
+
+    <!-- gllery js -->
+    <script src="/website/js/gallery/picturefill.min.js"></script>
+    <script src="/website/js/gallery/lightgallery.js"></script>
+    <script src="/website/js/gallery/lg-pager.js"></script>
+    <script src="/website/js/gallery/lg-autoplay.js"></script>
+    <script src="/website/js/gallery/lg-fullscreen.js"></script>
+    <script src="/website/js/gallery/lg-zoom.js"></script>
+    <script src="/website/js/gallery/lg-hash.js"></script>
+    <script src="/website/js/gallery/lg-share.js"></script>
+
+    <script>
+        lightGallery(document.getElementById('lightgallery'));
+    </script>
 
     <!--=== Active Js ===-->
-    <script src="website/js/active.min.js"></script>
+    <script src="/website/js/active.min.js"></script>
 
     <!-- REVOLUTION JS FILES -->
-    <script src="website/js/revslider/jquery.themepunch.tools.min.js"></script>
-    <script src="website/js/revslider/jquery.themepunch.revolution.min.js"></script>
+    <script src="/website/js/revslider/jquery.themepunch.tools.min.js"></script>
+    <script src="/website/js/revslider/jquery.themepunch.revolution.min.js"></script>
 
 
     <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-    <script src="website/js/revslider/extensions/revolution.extension.actions.min.js"></script>
-    <script src="website/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
-    <script src="website/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="website/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script src="website/js/revslider/extensions/revolution.extension.migration.min.js"></script>
-    <script src="website/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
-    <script src="website/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="website/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
-    <script src="website/js/revslider/extensions/revolution.extension.video.min.js"></script>
+    <script src="/website/js/revslider/extensions/revolution.extension.actions.min.js"></script>
+    <script src="/website/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="/website/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="/website/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="/website/js/revslider/extensions/revolution.extension.migration.min.js"></script>
+    <script src="/website/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="/website/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="/website/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="/website/js/revslider/extensions/revolution.extension.video.min.js"></script>
 
     <!--=== REVOLUTION JS ===-->
-    <script src="website/js/revslider/rev-active.js"></script>
+    <script src="/website/js/revslider/rev-active.js"></script>
 
 </body>
 

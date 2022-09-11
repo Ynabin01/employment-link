@@ -5,30 +5,14 @@
         <div class="container">
             <div class="gallery-view">
                 <div class="row" id="lightgallery">
-                    <div class="item col-md-4" data-src="website/images/gallery-pic.png"
+                    @foreach($photos as $photo)
+                    <div class="item col-md-4" data-src="/uploads/photo_gallery/{{$photo->file}}" data-sub-html="{{$photo->caption}}"
                         data-sub-html="<h4>Employment Link</h4>">
                         <a href="">
-                            <img src="website/images/gallery-pic.png" alt="Employment Link" />
+                            <img src="/uploads/photo_gallery/{{$photo->file}}" data-sub-html="{{$photo->caption}}" alt="Employment Link" />
                         </a>
                     </div>
-                    <div class="item col-md-4" data-src="website/images/gallery-pic-1.png"
-                        data-sub-html="<h4>Employment Link</h4>">
-                        <a href="">
-                            <img src="website/images/gallery-pic-1.png" alt="Employment Link" />
-                        </a>
-                    </div>
-                    <div class="item col-md-4" data-src="website/images/gallery-pic-4.png"
-                        data-sub-html="<h4>Employment Link</h4>">
-                        <a href="">
-                            <img src="website/images/gallery-pic-4.png" alt="Employment Link" />
-                        </a>
-                    </div>
-                    <div class="item col-md-4" data-src="website/images/gallery-pic-3.png"
-                        data-sub-html="<h4>Employment Link</h4>">
-                        <a href="">
-                            <img src="website/images/gallery-pic-3.png" alt="Employment Link" />
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

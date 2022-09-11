@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\GlobalSetting;
 use App\Models\Navigation;
 use Illuminate\Http\Request;
+use App\Models\NavigationItems;
 use App\Job;
 
 
@@ -282,14 +283,23 @@ class HomeController extends Controller
             $subcategory_id = Navigation::all()->where('nav_name',$submenu)->first()->id;
             if(Navigation::all()->where('parent_page_id',$subcategory_id)->count()>0){
                 $subcategory_type = Navigation::all()->where('parent_page_id',$subcategory_id)->first()->page_type;//slug/slug2(GROUP)
+                if($subcategory_type == "Photo Gallery"){
+                    //return "return to page gallary";
+                    $photos = Navigation::query()->where('parent_page_id',$subcategory_id)->latest()->get();
+                    return view("website.galleryfolder")->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+                }
             }
             if(Navigation::all()->where('nav_name',$submenu)->where('page_type','Group Jobcategory')->count()>0){
                 $subcategory_type = Navigation::all()->where('nav_name',$submenu)->first()->page_type;//slug/slug2(group)
              }
             else{
+                
                 //return Navigation::all()->where('nav_name',$submenu)->where('page_type','Normal')->first()->page_type;
                 if(Navigation::all()->where('nav_name',$submenu)->where('page_type','Normal')->count()>0){
-                    $subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','Normal')->first()->page_type;//slug/slug2(group)
+                    $subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','Normal')->first()->page_type;//slug/slug2(except group)
+                }
+                if(Navigation::all()->where('nav_name',$submenu)->where('page_type','Photo Gallery')->count()>0){
+                    $subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','Photo Gallery')->first()->page_type;//slug/slug2(except group)
                 }
             
                 else{
@@ -306,11 +316,11 @@ class HomeController extends Controller
         else{
              $subcategory_type = null;
          }
-        #return $subcategory_type;
+        
         if($subcategory_type == "Photo Gallery"){
             //return "return to page gallary";
-            $photos = Navigation::query()->where('parent_page_id',$subcategory_id)->where('page_status','1')->latest()->get();
-            return view("website.gallery")->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+            $photos = NavigationItems::query()->where('navigation_id',$subcategory_id)->latest()->get();
+            return view("website.photogallery")->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
         }
         elseif($subcategory_type == "Job"){
             //return $subcategory_type;
@@ -368,5 +378,11 @@ class HomeController extends Controller
         $jobs = Navigation::query()->where('parent_page_id',$category_id)->get();
         return view('website.job-list-cat')->with(['jobs'=>$jobs]);
     }
+    public function GotoGallery($slug){
+        $navigation_id = Navigation::all()->where('nav_name',$slug)->first()->id;
+        $photos = NavigationItems::query()->where('navigation_id',$subcategory_id)->latest()->get();
+        return view("website.photogallery")->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+    }
   
 }
+
