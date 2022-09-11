@@ -1,3 +1,4 @@
+<!--== Start Slider Area Wrapper ==-->
 @if (isset($sliders))
     <div class="slider-area-wrapper">
         <div id="rev_slider_11_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container"
@@ -8,7 +9,7 @@
                     @foreach ($sliders as $slider)
                         <li data-index="rs-27" data-transition="random-premium" data-slotamount="default"
                             data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default"
-                            data-easeout="default" data-masterspeed="default" data-thumb="website/images/slide-1.jpg"
+                            data-easeout="default" data-masterspeed="default" data-thumb="images/slide-1.jpg"
                             data-rotate="0" data-saveperformance="off" data-title="Slide">
                             <!-- MAIN IMAGE -->
                             <img src="{{ $slider->banner_image }}" alt="Employment" data-bgposition="center center"
@@ -35,3 +36,4 @@
         </div>
     </div>
 @endif
+<!--== End Slider Area Wrapper ==-->

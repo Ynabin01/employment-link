@@ -305,7 +305,7 @@ class HomeController extends Controller
                     $subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','Video Gallery')->first()->page_type;//slug/slug2(except group)
                 }
                 else{
-                   
+                    
                     if($submenu=="all-jobs")
                     {
                         return view("website.job-list")->with(['jobs'=>Job::all()]);
