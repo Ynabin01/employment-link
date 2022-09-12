@@ -64,12 +64,6 @@
                     <label for="caption">Caption <i class="reqr">*</i> (Page/Navigation Title)</label>
                     <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="caption" placeholder="Caption" value="{{old('caption')}}" required="required">
                 </div>
-
-                <div class="form-group col-md-6">
-                    <label for="caption">Span <i class="reqr">*</i> (Optional)</label>
-                    <input class="form-control {{ $errors->has('span') ? 'has-error' : '' }}" type="text" id="span" name="span" placeholder="Span" value="{{old('span')}}" required="required">
-                </div>
-
                  <!--------hide nepale
                 @if($category == 'SNS')'SNS'
                 <div class="form-group col-md-6">
