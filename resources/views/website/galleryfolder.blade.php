@@ -1,6 +1,7 @@
 @extends("layouts.master")
 
 @section('content')
+@include('website.breadcrumb')
 @if(isset($photos))
 <div class="gallery-folder sp-y-bottom">
     <div class="container">

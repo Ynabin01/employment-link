@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+  @include('website.breadcrumb')
     <div class="gallery">
         <div class="container">
             <div class="gallery-view">

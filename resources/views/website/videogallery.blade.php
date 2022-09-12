@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+  @include('website.breadcrumb')
     <div class="video-gallery-area sp-y-bottom">
         <div class="container">
             <div class="row">
