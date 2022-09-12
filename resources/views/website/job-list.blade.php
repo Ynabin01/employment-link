@@ -24,7 +24,7 @@
                     @foreach ($jobs as $job)
                         {{-- {{$job->navigation->salary}}  {{$job->navigation->caption}} --}}
                         <div class="col-sm-6">
-                            <div class="job-box">
+                            <div class="job-@endforeachbox">
                                 <figure><img src="{{ $job->navigation->banner_image }}"></figure>
                                 <a href="/jobdetail/{{ $job->navigation->nav_name }}">
                                     <div class="job-content">
