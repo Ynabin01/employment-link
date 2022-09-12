@@ -324,6 +324,7 @@ class HomeController extends Controller
             //return "return to page gallary";
             $photos = NavigationItems::query()->where('navigation_id',$subcategory_id)->latest()->get();
             return view("website.photogallery")->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+            
         }
         if($subcategory_type == "Video Gallery"){
             //return "return to page gallary";
@@ -389,8 +390,8 @@ class HomeController extends Controller
     }
     public function GotoGallery($slug){
         $navigation_id = Navigation::all()->where('nav_name',$slug)->first()->id;
-        $photos = NavigationItems::query()->where('navigation_id',$subcategory_id)->latest()->get();
-        return view("website.photogallery")->with(['photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+        $photos = NavigationItems::query()->where('navigation_id',$navigation_id)->latest()->get();
+        return view("website.photogallery")->with(['photos'=>$photos]);
     }
   
 }

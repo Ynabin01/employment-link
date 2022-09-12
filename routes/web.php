@@ -95,7 +95,7 @@ Route::prefix('admin')->group(function(){
 });
 //Route::get('view-all/{slug}',[HomeController::class,"viewAll"])->name['viewall'];
 
-Route::get('/gallery-view/{$slug}',[HomeController::class,"GOTOGALLERY"])->name('GOTOGALLERY');
+Route::get('gallery-view/{slug}',[HomeController::class,"GotoGallery"])->name('GOTOGALLERY');
 
 
 
