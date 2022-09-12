@@ -5,21 +5,7 @@
 @endpush
 
 @section('content')
-    <!--== Start Page Header Area ==-->
-    <div class="breadcrumb-area">
-        <div class="container">
-            <ol class="default-breadcrumb">
-                <li class="crumb">
-                    <div class="link"><a href="/" class="fa fa-home"></a></div>
-                </li>
-                <li class="crumb active">
-                    <div class="link"><span aria-current="location">Job Categories</span></div>
-                </li>
-            </ol>
-        </div>
-    </div>
-
-    <!--== End Page Header Area ==-->
+@include('website.breadcrumb')
     <!--== Job Categories Area Wrapper ==-->
     <div class="job-category-area sp-y-bottom">
         <div class="container">
