@@ -298,14 +298,15 @@ class HomeController extends Controller
                 if(Navigation::all()->where('nav_name',$submenu)->where('page_type','Normal')->count()>0){
                     $subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','Normal')->first()->page_type;//slug/slug2(except group)
                 }
-                if(Navigation::all()->where('nav_name',$submenu)->where('page_type','Photo Gallery')->count()>0){
+                else if(Navigation::all()->where('nav_name',$submenu)->where('page_type','Photo Gallery')->count()>0){
                     $subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','Photo Gallery')->first()->page_type;//slug/slug2(except group)
                 
                 }
-                if(Navigation::all()->where('nav_name',$submenu)->where('page_type','Video Gallery')->count()>0){
+                else if(Navigation::all()->where('nav_name',$submenu)->where('page_type','Video Gallery')->count()>0){
                     $subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','Video Gallery')->first()->page_type;//slug/slug2(except group)
                 }
                 else{
+                    
                     
                     if($submenu=="all-jobs")
                     {
@@ -319,7 +320,6 @@ class HomeController extends Controller
         else{
              $subcategory_type = null;
          }
-        
         if($subcategory_type == "Photo Gallery"){
             //return "return to page gallary";
             $photos = NavigationItems::query()->where('navigation_id',$subcategory_id)->latest()->get();

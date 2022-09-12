@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <!--== Start Page Header Area ==-->
+    {{-- <!--== Start Page Header Area ==-->
     <div class="breadcrumb-area">
         <div class="container">
             <ol class="default-breadcrumb">
@@ -14,8 +14,7 @@
             </ol>
         </div>
     </div>
-
-    <!--== End Page Header Area ==-->
+    <!--== End Page Header Area ==--> --}}
     <div class="inner-page-area sp-y-bottom">
 
         <div class="container">

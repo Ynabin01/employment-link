@@ -134,9 +134,11 @@ if (isset($normal)) {
                     <div class="navigation-area">
                         <ul class="main-menu nav">
                             @foreach ($menus as $menu)
-                                <li class="has-submenu"><a href="/{{ $menu->nav_name }}">{{ $menu->caption }}</a>
+                                <li class="@if($menu->childs->count()>0) has-submenu @endif"><a href="/{{ $menu->nav_name }}">{{ $menu->caption }}</a>
+                                   
                                     <ul class="submenu-nav">
-                                        @php $submenus = $menu->childs @endphp
+                                        @php $submenus = $menu->childs; @endphp
+                                        
                                         @foreach ($submenus as $sub)
                                             <li><a
                                                     href="/{{ $menu->nav_name }}/{{ $sub->nav_name }}">{{ $sub->caption }}</a>
@@ -146,6 +148,8 @@ if (isset($normal)) {
                                 </li>
                             @endforeach
                         </ul>
+
+                        
                     </div>
                     <!-- End Navigation Area -->
                 </div>

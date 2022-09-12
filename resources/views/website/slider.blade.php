@@ -7,9 +7,9 @@
                 <ul>
                     <!-- SLIDE  -->
                     @foreach ($sliders as $slider)
-                        <li data-index="rs-27" data-transition="random-premium" data-slotamount="default"
+                        <li data-index="{{ $slider->id }}" data-transition="random-premium" data-slotamount="default"
                             data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default"
-                            data-easeout="default" data-masterspeed="default" data-thumb="images/slide-1.jpg"
+                            data-easeout="default" data-masterspeed="default" data-thumb="{{ $slider->banner_image }}"
                             data-rotate="0" data-saveperformance="off" data-title="Slide">
                             <!-- MAIN IMAGE -->
                             <img src="{{ $slider->banner_image }}" alt="Employment" data-bgposition="center center"
