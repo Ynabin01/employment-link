@@ -1,20 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <!--== Start Page Header Area ==-->
-    <div class="breadcrumb-area">
-        <div class="container">
-            <ol class="default-breadcrumb">
-                <li class="crumb">
-                    <div class="link"><a href="index.html" class="fa fa-home"></a></div>
-                </li>
-                <li class="crumb active">
-                    <div class="link"><span aria-current="location">All Jobs</span></div>
-                </li>
-            </ol>
-        </div>
-    </div>
-    <!--== End Page Header Area ==-->
+@include('website.breadcrumb')
     <!--== Job Categories Area Wrapper ==-->
 
     <div class="job-list-area sp-y-bottom">
@@ -24,7 +11,7 @@
                     @foreach ($jobs as $job)
                         {{-- {{$job->navigation->salary}}  {{$job->navigation->caption}} --}}
                         <div class="col-sm-6">
-                            <div class="job-@endforeachbox">
+                            <div class="job-box">
                                 <figure><img src="{{ $job->navigation->banner_image }}"></figure>
                                 <a href="/jobdetail/{{ $job->navigation->nav_name }}">
                                     <div class="job-content">
