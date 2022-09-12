@@ -26,9 +26,9 @@
                         <div class="col-sm-6">
                             <div class="job-box">
                                 <figure><img src="/{{ $job->navigation->banner_image }}"></figure>
-                                <a href="/jobdetail/{{ $job->navigation->nav_name }}">
+                                <a href="/joblist/{{ $job->navigation->nav_name }}">
                                     <div class="job-content">
-                                        <h5>{{ $job->navigation->caption }} <span>{{ ($job->navigation->total_demand) }}</span></h5>
+                                        <h5>{{ $job->navigation->caption }} <span>({{ $job->total_demand }})</span></h5>
                                         <p><i class="fa fa-industry"></i>{{ $job->company_name }}</p>
                                         <p><i class="fa fa-map-marker"></i>{{ $job->country }}</p>
                                     </div>
