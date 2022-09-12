@@ -25,7 +25,7 @@
                         {{-- {{$job->navigation->salary}}  {{$job->navigation->caption}} --}}
                         <div class="col-sm-6">
                             <div class="job-box">
-                                <figure><img src="/{{ $job->navigation->banner_image }}"></figure>
+                                <figure><img src="{{ $job->navigation->banner_image }}"></figure>
                                 <a href="/jobdetail/{{ $job->navigation->nav_name }}">
                                     <div class="job-content">
                                         <h5>{{ $job->navigation->caption }} <span>({{ $job->total_demand }})</span></h5>
