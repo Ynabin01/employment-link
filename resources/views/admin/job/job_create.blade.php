@@ -101,7 +101,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="caption">Total Demand <i class="reqr">*</i> (total demand)</label>
-                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="total_demand" name="total_demand" placeholder="tital_demand" value="{{old('total_demand')}}" required="required">
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="total_demand" name="total_demand" placeholder="total_demand" value="{{old('total_demand')}}" required="required">
                 </div>
 
                 <div id="url_link_div" class="form-group col-md-10" style="display: none;">
