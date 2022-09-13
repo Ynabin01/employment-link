@@ -149,12 +149,16 @@ class JobController extends Controller
         $salary = $request['salary'];
         $contract_time = $request['contract_time'];
         $job_id = $request['job_id'];
+        $qualification = $request['qualification'];
+        $gender = $request['gender'];
 
         $job = Job::find($job_id);            
         $job->country = $country;    
         $job->company_name = $company_name;
         $job->salary = $salary; 
         $job->contract_time = $contract_time; 
+        $job->qualification	= $qualification;	
+        $job->gender = $gender;
             
         $job->save();
           //unset above data from request
@@ -163,6 +167,8 @@ class JobController extends Controller
           unset($request['salary']);
           unset($request['contract_time']);
           unset($request['job_id']);
+          unset($request['qualification']);
+          unset($request['gender']);
 
         $request->offsetUnset('_token');
         $request->offsetUnset('_method');

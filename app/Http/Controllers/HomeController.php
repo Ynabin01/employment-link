@@ -169,6 +169,7 @@ class HomeController extends Controller
             $jobs = null;
         }
         $slug_detail = Navigation::all()->where('nav_name',$menu);
+        $slug1 = $slug_detail->first()->caption;
         //
         if(Navigation::all()->where('nav_name',$menu)->count()>0){
                     //$normal_notice_page = Navigation::all()->where('nav_name',$slug)->first();
@@ -204,7 +205,7 @@ class HomeController extends Controller
         elseif($category_type == "Normal"){
             //return $category_id;
             $normal = Navigation::find($category_id);
-            return view("website.normal")->with(['normal'=>$normal,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+            return view("website.normal")->with(['normal'=>$normal,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug1'=>$slug1]);
         }
         else{
             if($jobs!=null){   
@@ -313,7 +314,8 @@ class HomeController extends Controller
                     
                     if($submenu=="all-jobs")
                     {
-                        return view("website.job-list")->with(['jobs'=>Job::all()]);
+                        
+                        return view("website.job-list")->with(['jobs'=>Job::all(),'slug1'=>$slug1,'slug2'=>$slug2]);
                     }
                     return redirect('/');//submenu is page_type=Group and its internal items are empty
                 }
@@ -368,10 +370,12 @@ class HomeController extends Controller
         }
     }
     public function singlePage($slug){
+        $slug1 = "Jobdetail";
         $job =Navigation::all()->where('nav_name',$slug)->first();
+        $slug2 = $job->caption;
         $global_setting = GlobalSetting::all()->first(); 
         $menus = Navigation::all()->where('nav_category','Main')->where('page_type','!=','Job')->where('page_type','!=','Photo Gallery')->where('page_type','!=','Notice')->where('parent_page_id',0);
-        return view("website.job_detail_single_page")->with(['job'=>$job,'menus'=>$menus,'global_setting'=>$global_setting,]);
+        return view("website.job_detail_single_page")->with(['job'=>$job,'menus'=>$menus,'global_setting'=>$global_setting,'slug1'=>$slug1,'slug2'=>$slug2]);
     }
     public function ReadMore($slug){
         $normal = Navigation::where('id',$slug)->first();
@@ -395,7 +399,7 @@ class HomeController extends Controller
     public function GotoGallery($slug){
         $navigation_id = Navigation::all()->where('nav_name',$slug)->first()->id;
         $photos = NavigationItems::query()->where('navigation_id',$navigation_id)->latest()->get();
-        return view("website.photogallery")->with(['photos'=>$photos]);
+        return view("website.photogallery")->with(['photos'=>$photos,]);
     }
   
 }
