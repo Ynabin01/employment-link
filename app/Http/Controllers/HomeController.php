@@ -338,14 +338,14 @@ class HomeController extends Controller
         elseif($subcategory_type == "Job"){
             //return $subcategory_type;
             //return "return to view job";
-            return view("website.job-list")->with(['jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+            return view("website.job-list")->with(['jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail,'slug1'=>$slug1,'slug2'=>$slug2]);
         }
         elseif($subcategory_type == "Notice"){
             // return "return to view Notice";
             $notices = Navigation::query()->where('parent_page_id',$subcategory_id)->where('page_type','Notice')->latest()->get();
             $notice_heading = Navigation::find($subcategory_id);
             //return $notice_heading;
-            return view("website.notice")->with(['notice_heading'=>$notice_heading,'notices'=>$notices,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+            return view("website.notice")->with(['notice_heading'=>$notice_heading,'notices'=>$notices,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail,'slug1'=>$slug1,'slug2'=>$slug2]);
         }
         elseif($subcategory_type == "Normal"){
                 
@@ -354,13 +354,13 @@ class HomeController extends Controller
         }
         elseif($subcategory_type == "Group"){
             //return "return to job else";
-            return view("website.job-list")->with(['jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+            return view("website.job-list")->with(['jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail,'slug1'=>$slug1,'slug2'=>$slug2]);
         }
         elseif($subcategory_type == "Group Jobcategory"){
             //return "return to job else";
             $job_categories = Navigation::query()->where('parent_page_id',$subcategory_id)->get();
             #return $job_categories;
-            return view("website.jobcategories")->with(['job_categories'=>$job_categories,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
+            return view("website.jobcategories")->with(['job_categories'=>$job_categories,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail,'slug1'=>$slug1,'slug2'=>$slug2]);
         }
         else{
           
@@ -371,7 +371,7 @@ class HomeController extends Controller
         $job =Navigation::all()->where('nav_name',$slug)->first();
         $global_setting = GlobalSetting::all()->first(); 
         $menus = Navigation::all()->where('nav_category','Main')->where('page_type','!=','Job')->where('page_type','!=','Photo Gallery')->where('page_type','!=','Notice')->where('parent_page_id',0);
-        return view("website.job_detail_single_page")->with(['job'=>$job,'menus'=>$menus,'global_setting'=>$global_setting]);
+        return view("website.job_detail_single_page")->with(['job'=>$job,'menus'=>$menus,'global_setting'=>$global_setting,]);
     }
     public function ReadMore($slug){
         $normal = Navigation::where('id',$slug)->first();
