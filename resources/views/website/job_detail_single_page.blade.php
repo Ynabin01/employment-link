@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="job-detail-area sp-y-bottom">
+@include('website.breadcrumb')
+<div class="job-detail-area sp-y-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">

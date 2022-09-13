@@ -16,6 +16,7 @@ class HomeController extends Controller
         //return $menus->first()->submenus;
 
         $jobs = Navigation::query()->where('page_type','Job')->latest()->get();
+    
         if(Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%about%")->where('page_type','Group')->latest()->first()!=null){
             $about_id = Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%about%")->where('page_type','Group')->latest()->first()->id;
             $About = Navigation::query()->where('parent_page_id',$about_id)->latest()->first();
