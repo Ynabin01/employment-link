@@ -4,7 +4,10 @@
     <div class="container">
         <ol class="default-breadcrumb">
             <li class="crumb">
-              <div class="link"><a href="/" class="fa fa-home">{{$slug1 ?? 'slug1'}}</a></div>
+              <div class="link"><a href="/" class="fa fa-home"></a></div>
+            </li>
+            <li class="crumb active">
+                <div class="link"><span aria-current="location">{{$slug1 ?? 'slug1'}}</span></div>
             </li>
             @if(isset($slug2))
                 <li class="crumb active">
