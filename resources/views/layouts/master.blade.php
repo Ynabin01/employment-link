@@ -1,13 +1,11 @@
 @php
 $normal_gallary_notice = App\Models\Navigation::query()
     ->where('nav_category', 'Main')
-    ->where('page_type', '!=', 'Home')
-    ->where('page_type', '!=', 'About us')
-    ->where('page_type', '!=', 'Job Seeker')
-    ->where('parent_page_id', 0)
-    ->where('page_status', '1')
+    ->where('page_type', 'Normal')
+
     ->orderBy('position', 'ASC')
     ->get();
+
 $menus = App\Models\Navigation::query()
     ->where('nav_category', 'Main')
     ->where('page_type', '!=', 'Job')
@@ -103,18 +101,18 @@ if (isset($normal)) {
 </head>
 
 <body>
-    @if(Session::has('contact'))
-    <script>
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Sucessfully Applyed !!',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          </script>
+    @if (Session::has('contact'))
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Sucessfully Applyed !!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
     @endif
-    
+
 
     <!--== Start Header Area Wrapper ==-->
     <header class="header-area">
@@ -134,24 +132,26 @@ if (isset($normal)) {
                     <div class="navigation-area">
                         <ul class="main-menu nav">
                             @foreach ($menus as $menu)
-                                <li @if($menu->childs->count()>0) class = "has-submenu" @endif class="@if($menu->childs->count()>0) has-submenu @endif"><a href="/{{ $menu->nav_name }}">{{ $menu->caption }}</a>
-                                    @if($menu->childs->count()>0)
-                                    <ul class="submenu-nav">
-                                        @php $submenus = $menu->childs; @endphp
-                                        
-                                        @foreach ($submenus as $sub)
-                                            <li><a
-                                                    href="/{{ $menu->nav_name }}/{{ $sub->nav_name }}">{{ $sub->caption }}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+                                <li @if ($menu->childs->count() > 0) class = "has-submenu" @endif
+                                    class="@if ($menu->childs->count() > 0) has-submenu @endif"><a
+                                        href="/{{ $menu->nav_name }}">{{ $menu->caption }}</a>
+                                    @if ($menu->childs->count() > 0)
+                                        <ul class="submenu-nav">
+                                            @php $submenus = $menu->childs; @endphp
+
+                                            @foreach ($submenus as $sub)
+                                                <li><a
+                                                        href="/{{ $menu->nav_name }}/{{ $sub->nav_name }}">{{ $sub->caption }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
                                     @endif
                                 </li>
                             @endforeach
-                         
+
                         </ul>
 
-                        
+
                     </div>
                     <!-- End Navigation Area -->
                 </div>
@@ -208,7 +208,9 @@ if (isset($normal)) {
                             <h4 class="widget-title">Information</h4>
                             <div class="widget-body">
                                 <ul class="widget-list">
-                                    @foreach ($normal_gallary_notice->where('page_type', '=', 'Group') as $dat)
+                                    <li><a href="/">Home</a></li>
+
+                                    @foreach ($normal_gallary_notice as $dat)
                                         <li><a href="{{ route('category', $dat->nav_name) }}">{{ $dat->caption }}</a>
                                         </li>
                                     @endforeach
@@ -286,17 +288,17 @@ if (isset($normal)) {
                 <div class="off-canvas-item">
                     <div class="log-in-content-wrap">
                         @if ($errors->any())
-								<div class="alert alert-danger">
-									<ul>
-										@foreach ($errors->all() as $error)
-											<li>{{ $error }}</li>
-										@endforeach
-									</ul>
-								</div>
-							@endif
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <h2>Apply Form</h2>
                         <div class="login-form mtn-15">
-                            <form action="{{route('contactstore')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('contactstore') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-input-item">
                                     <label for="name">Full Name</label>
@@ -304,7 +306,7 @@ if (isset($normal)) {
                                 </div>
                                 <div class="form-input-item">
                                     <label for="number">Number</label>
-                                    <input name="number" type="text" id="number" >
+                                    <input name="number" type="text" id="number">
                                 </div>
                                 <div class="form-input-item">
                                     <label for="email">Email</label>
@@ -316,7 +318,8 @@ if (isset($normal)) {
                                 </div>
                                 <div class="form-input-item">
                                     <label for="message">Message</label>
-                                    <textarea name="message" type="text" id="message" placeholder="Message..." style="width: 100%; min-height: 150px;"></textarea>
+                                    <textarea name="message" type="text" id="message" placeholder="Message..."
+                                        style="width: 100%; min-height: 150px;"></textarea>
                                 </div>
                                 <div class="form-input-item">
                                     <button type="submit" class="btn-submit">Submit</button>
