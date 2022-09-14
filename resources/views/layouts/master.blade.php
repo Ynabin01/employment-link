@@ -193,7 +193,7 @@ if (isset($normal)) {
                     <div class="col-lg-4">
                         <div class="widget-item">
                             <div class="about-widget">
-                                <a href="index.html"><img src="/uploads/icons/{{ $global_setting->site_logo }}"
+                                <a href="/"><img src="/uploads/icons/{{ $global_setting->site_logo }}"
                                         alt="Logo" /></a>
                                 <p>QUALITY, HONESTY, INTEGRITY – These are terms that are synonymous with Employment
                                     Link Nepal (P) Ltd. bestowed onto our partners, and all endeavors we embark on.</p>
