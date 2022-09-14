@@ -134,7 +134,7 @@ class JobController extends Controller
     }
      public function JobUpdate(Request $request, $nav_category, $id)
     {
-        //return $request;
+        // return $request;
         $this->validate($request,[
             'nav_name' => 'required|min:3',
             'caption' => 'required',
@@ -151,6 +151,8 @@ class JobController extends Controller
         $job_id = $request['job_id'];
         $qualification = $request['qualification'];
         $gender = $request['gender'];
+        $age_range = $request ['age_range'];
+        $total_demand = $request ['total_demand'];
 
         $job = Job::find($job_id);            
         $job->country = $country;    
@@ -159,6 +161,8 @@ class JobController extends Controller
         $job->contract_time = $contract_time; 
         $job->qualification	= $qualification;	
         $job->gender = $gender;
+        $job->age_range = $age_range;
+        $job->total_demand = $total_demand;
             
         $job->save();
           //unset above data from request
@@ -169,6 +173,8 @@ class JobController extends Controller
           unset($request['job_id']);
           unset($request['qualification']);
           unset($request['gender']);
+          unset($request['age_range']);
+          unset($request['total_demand']);
 
         $request->offsetUnset('_token');
         $request->offsetUnset('_method');

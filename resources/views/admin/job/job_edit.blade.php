@@ -84,7 +84,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="caption">qualification	  <i class="reqr">*</i>(qualification	 )</label>
-                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="qualification	" placeholder="qualification	 " value="{{$job->qualification	}}" required="required">
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="qualification" placeholder="qualification" value="{{$job->qualification	}}" required="required">
                 </div>   
 
                 <div class="form-group col-md-6">
