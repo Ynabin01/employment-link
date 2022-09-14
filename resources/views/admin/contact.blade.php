@@ -69,7 +69,20 @@
 @extends('layouts.master')
 
 @section('content')
-@include('website.breadcrumb')
+<!--== Start Page Header Area ==-->
+<div class="breadcrumb-area">
+    <div class="container">
+        <ol class="default-breadcrumb">
+            <li class="crumb">
+              <div class="link"><a href="/" class="fa fa-home"></a></div>
+            </li>
+            <li class="crumb active">
+                <div class="link"><span aria-current="location">contact us</span></div>
+            </li>
+        </ol>
+    </div>
+</div>
+<!--== End Page Header Area ==-->
 
     <!--== Start Contact Page Area Wrapper ==-->
     <div class="contact-page-area-wrapper sp-y-bottom">
