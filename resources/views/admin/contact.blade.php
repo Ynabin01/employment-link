@@ -171,15 +171,15 @@
                                     </address>
                                 </div>
                                 <div class="member-social-icons mt-30">
-                                    <a href="{{ $global_setting->facebook ?? '' }}"><i class="mdi mdi-facebook"></i></a>
-                                    <a href="{ $global_setting->twitter ?? '' }}"><i class="mdi mdi-twitter"></i></a>
-                                    <a href="{{ $global_setting->linkedin ?? '' }}"><i class="mdi mdi-linkedin"></i></a>
+                                    <a href="{{ $global_setting->facebook ?? '' }}" target="_blank"><i class="mdi mdi-facebook"></i></a>
+                                    <a href="{{ $global_setting->twitter ?? '' }}" target="_blank"><i class="mdi mdi-twitter"></i></a>
+                                    <a href="{{ $global_setting->linkedin ?? '' }}" target="_blank"><i class="mdi mdi-linkedin"></i></a>
                                     {{-- <a href="#"><i class="mdi mdi-pinterest"></i></a> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
