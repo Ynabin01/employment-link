@@ -77,7 +77,7 @@
               <div class="link"><a href="/" class="fa fa-home"></a></div>
             </li>
             <li class="crumb active">
-                <div class="link"><span aria-current="location">contact us</span></div>
+                <div class="link"><span aria-current="location">Contact us</span></div>
             </li>
         </ol>
     </div>
