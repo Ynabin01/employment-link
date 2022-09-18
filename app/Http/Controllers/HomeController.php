@@ -169,7 +169,7 @@ class HomeController extends Controller
             $jobs = null;
         }
         $slug_detail = Navigation::all()->where('nav_name',$menu);
-        $slug1 = $slug_detail->first()->caption;
+        $slug1 = $slug_detail->first();
         //
         if(Navigation::all()->where('nav_name',$menu)->count()>0){
                     //$normal_notice_page = Navigation::all()->where('nav_name',$slug)->first();
@@ -267,7 +267,7 @@ class HomeController extends Controller
         else{
             $process = null;
         }
-        //return $misson;
+        //return $misson; 
         $job_categories = Navigation::all()->where('nav_category','Main')->where('page_type','Group')->where('banner_image','!=',null);
         //sreturn $job_categories;
         $global_setting = GlobalSetting::all()->first();        
@@ -280,8 +280,10 @@ class HomeController extends Controller
             $jobs = null;
         }
         $slug_detail = Navigation::all()->where('nav_name',$submenu);
-        $slug1 = $slug1;
-        $slug2 = $submenu;
+        $slug1 = Navigation::where('nav_name',$slug1)->first();
+        $slug2 = Navigation::where('nav_name',$submenu)->first();
+        // $slug1 = $slug1;
+        // $slug2 = $submenu;
         //
         if(Navigation::all()->where('nav_name',$submenu)->count()>0){
             $subcategory_id = Navigation::all()->where('nav_name',$submenu)->first()->id;
