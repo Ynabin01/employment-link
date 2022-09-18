@@ -3992,10 +3992,12 @@ Inner Page
     box-shadow: none;
 }
 
-#lightgallery .item{
+#lightgallery .item {
     display: inline-block;
     margin-bottom: 30px;
-} 
+    max-height: 253px;
+    overflow: hidden;
+}
 .video-item{
     margin-bottom: 30px;
 }
