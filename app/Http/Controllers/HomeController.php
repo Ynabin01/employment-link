@@ -79,7 +79,7 @@ class HomeController extends Controller
             $partners_id = Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type','Group')->latest()->first()->id;
             $partners = Navigation::query()->where('parent_page_id',$partners_id)->latest()->get();
             //return $partners;
-        }
+        } 
         else{
             $partners = null;
         }
@@ -373,6 +373,7 @@ class HomeController extends Controller
     }
     public function singlePage($slug){
         $slug1 = "Jobdetail";
+        // $slug1 = Navigation::all()->where('nav_name',$Job)->first();
         $job =Navigation::all()->where('nav_name',$slug)->first();
         $slug2 = $job->caption;
         $global_setting = GlobalSetting::all()->first(); 
@@ -399,7 +400,7 @@ class HomeController extends Controller
         // $slug1 = Navigation::where('nav_name',joblist)
         $category_id = Navigation::all()->where('nav_name',$category_name)->first()->id;
         $jobs = Navigation::query()->where('parent_page_id',$category_id)->get();
-        return view('website.job-list-cat')->with(['jobs'=>$jobs,'slug1'=>$slug1]);
+        return view('website.job-list-cat')->with(['jobs'=>$jobs,'slug1'=>$slug1,]);
     }
     public function GotoGallery($slug){
         $navigation_id = Navigation::all()->where('nav_name',$slug)->first()->id;

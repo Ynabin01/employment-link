@@ -134,7 +134,7 @@ if (isset($normal)) {
                             @foreach ($menus as $menu)
                                 <li @if ($menu->childs->count() > 0) class = "has-submenu" @endif
                                     class="@if ($menu->childs->count() > 0) has-submenu @endif"><a
-                                        href="@if($menu->nav_name=='Company') # @else /{{ $menu->nav_name }} @endif">{{ $menu->caption }}</a>
+                                        href="@if ($menu->nav_name == 'Company') # @else /{{ $menu->nav_name }} @endif">{{ $menu->caption }}</a>
                                     @if ($menu->childs->count() > 0)
                                         <ul class="submenu-nav">
                                             @php $submenus = $menu->childs; @endphp
@@ -150,8 +150,6 @@ if (isset($normal)) {
                             @endforeach
 
                         </ul>
-
-
                     </div>
                     <!-- End Navigation Area -->
                 </div>
